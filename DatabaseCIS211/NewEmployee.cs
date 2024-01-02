@@ -35,7 +35,7 @@ namespace DatabaseCIS211
 
                 command.Connection = connection;
 
-
+                // connection status
                 try
                 {
                   string name = textBox1.Text;
