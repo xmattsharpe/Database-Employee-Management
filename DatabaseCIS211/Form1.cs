@@ -38,7 +38,7 @@ namespace DatabaseCIS211
         }
 
 
-        public void loadData()
+        public int loadData()
         {
             // method to call when the form loads to populate DGV with Names
 
@@ -47,7 +47,10 @@ namespace DatabaseCIS211
                  dbAdapter.Fill(dataTable);
                      dataGridView1.DataSource = dataTable;
 
-        
+             int count = dataTable.Rows.Count;
+            label5.Text = $"There are currently {count} employees within the database";
+
+            return count;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,7 +152,7 @@ namespace DatabaseCIS211
 
         private void button4_Click(object sender, EventArgs e)
         {
-            NewEmployee newemp = new NewEmployee();
+            NewEmployee newemp = new NewEmployee(this);
             newemp.ShowDialog();
 
 

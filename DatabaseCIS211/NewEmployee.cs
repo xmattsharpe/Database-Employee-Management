@@ -17,12 +17,13 @@ namespace DatabaseCIS211
          OleDbConnection connection = new OleDbConnection();
         
               private DataTable dt;
-
+        private Form1 form1;
         // I dont find the company time and promotion eligibility necessary for a new hire so I dont include them here.
-        public NewEmployee()
+        public NewEmployee(Form1 current)
         {
              InitializeComponent();
                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\matth\OneDrive\Documents\CIS211Database.accdb";
+            form1 = current;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,8 +50,11 @@ namespace DatabaseCIS211
                           command.ExecuteNonQuery();
                               pictureBox1.Visible = true;
 
+
                                       MessageBox.Show($"{name} was successfully added");
 
+                   
+                    int updatedCount = form1.loadData();
 
                 }
 
